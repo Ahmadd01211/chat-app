@@ -1,5 +1,5 @@
 {
-  "name": "chatapp",
+  "name": "chat-app",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -13,13 +13,13 @@
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
-    "cookieparser": "^0.1.0",
     "dotenv": "^16.4.7",
-    "express": "4.21.2",
-    "git": "^0.1.5",
+    "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.11.0",
-    "nodemon": "^3.1.9",
+    "mongoose": "^8.12.1",
     "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }

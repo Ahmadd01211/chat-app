@@ -10,14 +10,14 @@ const app = express();
 dotenv.config(); 
 const PORT= process.env.PORT || 3000;
 
-dotenv.config(); 
 app.use(express.json());
+app.use(cookieParser()); 
+
 
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-app.use(cookieParser()); 
 
 app.listen(PORT, () => {
     connectToMongoDB();
