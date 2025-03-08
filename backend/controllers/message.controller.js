@@ -5,7 +5,8 @@ export const sendMessage=async(req,res)=>{
     try{
         const{message}=req.body;
         const {id:receiverId}=req.params;
-        const senderId=req.user._Id;
+        const senderId=req.user._id;
+
 
         let conversation = await Conversation.findOne ({
             participants:{$all:[senderId,receiverId]}
@@ -16,20 +17,32 @@ export const sendMessage=async(req,res)=>{
             
             })
         }
-        const newMessage = await Message.create({
+        const newMessage = new Message({
             senderId,
             receiverId,
             message,
         });
         if(newMessage){
             conversation.messages.push(newMessage._id);
-            await conversation.save();
-            await newMessage.save();
+            
         }
+        await Promise.all([conversation.save(),newMessage.save()]);
+
         res.status(201).json(newMessage);
     }
     catch(error){
+        console.error("Error in sendMessage controller:", error.message);
         res.status(500).json({error:"internal server error in message controller"});
     }
     
 }
+
+export const getMessages=async(req,res)=>{
+    try{
+        
+
+        } catch (error) {
+            console.error("Error in getMessages controller:", error.message);
+            res.status(500).json({ error: "internal server error in message controller" });
+        }
+    }

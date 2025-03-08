@@ -6,6 +6,8 @@ import { sendMessage } from "../controllers/message.controller.js";
 
 const router = express.Router();
 
+//router.post("/:id",protectRoute,getMessages);
+
 router.post("/send/:id",protectRoute,sendMessage);
 
 
