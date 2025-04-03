@@ -1,6 +1,7 @@
 
-import './App.css'
-import Login from './pages/login/login'
+import  "./App.css";
+
+import Login from './pages/login/Login';
 
 function App() {
 
@@ -9,9 +10,7 @@ function App() {
       <Login />
     </div>
     
-  
-  
-  )
+  );
 }
 
-export default App
+export default App;
